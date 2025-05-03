@@ -4,7 +4,7 @@
 import random
 
 # Quiero meter este cambio
-
+###Segundo cambio con Jeison
 
 
 def imprimir_tablero(tablero):
