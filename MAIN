@@ -1,0 +1,75 @@
+import java.util.Random;
+
+public class Sudoku {
+    public static final int TAMANO = 9; // Tamaño del tablero (9x9)
+
+    public static void main(String[] args) {
+        int[][] tablero = new int[TAMANO][TAMANO];
+        if (resolverSudoku(tablero)) {
+            imprimirTablero(tablero);
+        } else {
+            System.out.println("No se pudo generar un Sudoku válido.");
+        }
+    }
+
+    // Método para resolver el Sudoku llenándolo de forma válida
+    public static boolean resolverSudoku(int[][] tablero) {
+        for (int fila = 0; fila < TAMANO; fila++) {
+            for (int columna = 0; columna < TAMANO; columna++) {
+                if (tablero[fila][columna] == 0) { // Encuentra una celda vacía
+                    for (int numero = 1; numero <= TAMANO; numero++) {
+                        if (esValido(tablero, fila, columna, numero)) {
+                            tablero[fila][columna] = numero; // Prueba un número
+                            if (resolverSudoku(tablero)) {
+                                return true; // Si funciona, continúa
+                            }
+                            tablero[fila][columna] = 0; // Si no, retrocede
+                        }
+                    }
+                    return false; // Si ningún número es válido, falla
+                }
+            }
+        }
+        return true; // Si no hay celdas vacías, se resolvió
+    }
+
+    // Verifica si un número puede colocarse en una celda
+    public static boolean esValido(int[][] tablero, int fila, int columna, int numero) {
+        // Revisa la fila
+        for (int i = 0; i < TAMANO; i++) {
+            if (tablero[fila][i] == numero) {
+                return false;
+            }
+        }
+
+        // Revisa la columna
+        for (int i = 0; i < TAMANO; i++) {
+            if (tablero[i][columna] == numero) {
+                return false;
+            }
+        }
+
+        // Revisa el subcuadro 3x3
+        int inicioFila = fila - fila % 3;
+        int inicioColumna = columna - columna % 3;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (tablero[inicioFila + i][inicioColumna + j] == numero) {
+                    return false;
+                }
+            }
+        }
+
+        return true; // Si pasa todas las pruebas, es válido
+    }
+
+    // Imprime el tablero de Sudoku
+    public static void imprimirTablero(int[][] tablero) {
+        for (int fila = 0; fila < TAMANO; fila++) {
+            for (int columna = 0; columna < TAMANO; columna++) {
+                System.out.print(tablero[fila][columna] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
