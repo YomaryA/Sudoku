@@ -13,6 +13,10 @@ def es_valido(tablero, fila, col, num):
     if num in tablero[fila]:
         return False
 
+#CAmbio acompañado de jeison
+
+
+
     # Verificar si el número ya está en la columna
     if num in [tablero[i][col] for i in range(9)]:
         return False
