@@ -3,6 +3,10 @@
 #Es un generador de sudokus para poder llenar de forma creativa
 import random
 
+# Quiero meter este cambio
+
+
+
 def imprimir_tablero(tablero):
     for fila in tablero:
         print(" ".join(str(num) if num != 0 else '.' for num in fila))
