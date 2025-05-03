@@ -64,3 +64,4 @@ remover_numeros(tablero_sudoku, vacios=40)
 
 # Imprimir el sudoku generado
 imprimir_tablero(tablero_sudoku)
+#PRUEBA DE EDICIÓN DE README
