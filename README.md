@@ -1,5 +1,5 @@
 # Sudoku
-#CODIGO 
+#CODIGO PRUEBA
 #Es un generador de sudokus para poder llenar de forma creativa
 import random
 
