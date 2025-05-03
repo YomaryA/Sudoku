@@ -1,6 +1,6 @@
 # Sudoku
-#CODIGO PRUEBA
-#Es un generador de sudokus para poder llenar de forma creativa
+CODIGO PRUEBA
+Es un generador de sudokus para poder llenar de forma creativa
 import random
 
 def imprimir_tablero(tablero):
