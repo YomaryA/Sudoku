@@ -1,5 +1,5 @@
 import java.util.Random;
-
+/*prueba de cambio 1 nestor*/
 public class Sudoku {
     public static final int TAMANO = 9; // Tamaño del tablero (9x9)
 
